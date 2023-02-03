@@ -7,3 +7,11 @@ let latitudeCoord = ""
 let longitudeCoord = ""
 
  let baseUrl = ("https://api.openweathermap.org/data/2.5/forecast?lat=" latitudeCoord + "&lon=" + longitudeCpprd + "&appid=" + apiKey)
+
+ $.ajax({
+    url: baseUrl,
+    method: "GET"
+ }.then( function () {
+    console.log(promis)
+ })
+ )
