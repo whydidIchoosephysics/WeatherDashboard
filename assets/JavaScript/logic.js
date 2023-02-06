@@ -2,6 +2,8 @@ const apiKey = "ec5505d77c6eea9afb6162e232ff043c";
 
 let citiesArea = $("#city-list");
 
+// http://api.openweathermap.org/data/2.5/forecast?lat=53.48&lon=-2.24&appid=ec5505d77c6eea9afb6162e232ff043c
+
 //   console.log(promise.list[0].dt_txt);
 //   console.log("Temperature: " + promise.list[0].main.temp + "°C");
 //   console.log("Humidity: " + promise.list[0].wind.speed + "KPH");
@@ -25,8 +27,9 @@ function cityNameToCoordinates() {
 
     let lat = promise[0].lat;
     let lon = promise[0].lon;
-    console.log([lat, lon]);
-    return [lat, lon];
+    let coords = [lat, lon];
+
+    searchCityWeather(coords);
   });
 
   console.log(cityName);
