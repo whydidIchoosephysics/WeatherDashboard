@@ -1,4 +1,4 @@
-const apiKey = "ec5505d77c6eea9afb6162e232ff043c";
+// const apiKey = "ec5505d77c6eea9afb6162e232ff043c";
 
 //  The base URL for your API calls should look like the following:
 // let url =

@@ -21,113 +21,118 @@
       crossorigin="anonymous"
     />
 
+    <!-- Font Awesome CSS Icons (For cool glyphicons) -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
     <!-- MY CSS -->
     <link rel="stylesheet" href="./assets/CSS/style.css" />
   </head>
 
   <body>
-    <section>
-      <header class="container">
-        <h1>Weather Dashboard</h1>
-      </header>
-      <nav class="container">
-        <div class="row align-items-center py-2">
-          <div class="input-group col-sm">
-            <span class="input-group-text" id="basic-addon1">Lat</span>
-            <input
-              type="text"
-              class="form-control"
-              inputmode="numeric"
-              id="latitude"
-              placeholder="latitude"
-              aria-label="latitude"
-              aria-describedby="basic-addon1"
-              value="42.98"
-            />
-          </div>
-          <div class="input-group col-sm">
-            <span class="input-group-text" id="basic-addon1">Lon</span>
-            <input
-              type="text"
-              class="form-control"
-              inputmode="numeric"
-              id="longitude"
-              placeholder="longitude"
-              aria-label="longitude"
-              aria-describedby="basic-addon1"
-              value="-81.23"
-            />
-          </div>
-        </div>
-        <div class="row align-items-center py-2">
-          <div class="col-auto me-auto">
-            <button id="btnGet" type="button" class="btn btn-primary mb-3">
-              Get Weather
-            </button>
-            <button id="btnCurrent" type="button" class="btn btn-primary mb-3">
-              Use Current Location
-            </button>
-          </div>
-        </div>
-      </nav>
+    <h1>Weather Dashboard</h1>
 
-      <main class="container">
-        <h2>Weather</h2>
+    <div class="page-contents">
+      <aside class="side-left">
+        
+        <form role="form">
 
-        <!-- results for weather data -->
-        <div class="weather-row row gx-2">
-          <div class="col">
-            <div class="card" style="width: 30vw">
-              <h5 class="card-title p-2">Date</h5>
-              <img
-                src="http://openweathermap.org/img/wn/10d@4x.png"
-                class="card-img-top"
-                alt="Weather description"
-              />
-              <div class="card-body">
-                <h3 id="dataPlace" class="card-title">Weather Label</h3>
-                <p class="card-text">High Temp Low Temp</p>
-                <p class="card-text">HighFeels like</p>
-                <p class="card-text">Pressure</p>
-                <p class="card-text">Humidty</p>
-                <p class="card-text">UV Index</p>
-                <p class="card-text">Precipitation</p>
-                <p class="card-text">Dew Point</p>
-                <p class="card-text">Wind speed and direction</p>
-                <p class="card-text">Sunrise</p>
-                <p class="card-text">Sunset</p>
-              </div>
-            </div>
+          <div class="form-group">
+            <label for="search">Search for a City:</label>
+            <input type="text" class="form-control" id="search-term">
           </div>
-        </div>
+
+            <button type="button" class="btn btn-primary btn-block" id="search-button">
+              <i class="fa fa-search"></i> Search</button>
+        </form>
+
+        <hr>
+
+        <span class="city-list" id="city-list"></span>
+
+      </aside>
+
+      <main class="weather-view">
+        <article class="weather" id="weather-main">
+
+          <h2 id="city-name">Manchester</h2>
+          <p>Temperature:</p>
+          <p>Wind:</p>
+          <p>Humidity:</p>
+        </article>
+
+        <h3> 5-Day Forecast</h3>
+
+        <article class="weather many-days" id="weather-days">
+
+
+        
+          <div class="weather mini-day" id="weather-mini">
+            <h4 class="date" id="day-1">06.02.2023<h4>
+              <p class="mini-text">
+                Temperature:
+              </p>
+              <p class="mini-text">
+                Wind:
+              </p>
+              <p class="mini-text">
+                Humidity:
+              </p>
+          </div>
+
+          <div class="weather mini-day" id="weather-mini">
+            <h4 class="date" id="day-2">06.02.2023<h4>
+              <p class="mini-text">
+                Temperature:
+              </p>
+              <p class="mini-text">
+                Wind:
+              </p>
+              <p class="mini-text">
+                Humidity:
+              </p>
+          </div>
+
+          <div class="weather mini-day" id="weather-mini">
+            <h4 class="date" id="day-3">06.02.2023<h4>
+              <p class="mini-text">
+                Temperature:
+              </p>
+              <p class="mini-text">
+                Wind:
+              </p>
+              <p class="mini-text">
+                Humidity:
+              </p>
+          </div>
+
+          <div class="weather mini-day" id="weather-mini">
+            <h4 class="date" id="day-4">06.02.2023<h4>
+              <p class="mini-text">
+                Temperature:
+              </p>
+              <p class="mini-text">
+                Wind:
+              </p>
+              <p class="mini-text">
+                Humidity:
+              </p>
+          </div>
+
+          <div class="weather mini-day" id="weather-mini">
+            <h4 class="date" id="day-5">06.02.2023<h4>
+              <p class="mini-text">
+                Temperature:
+              </p>
+              <p class="mini-text">
+                Wind:
+              </p>
+              <p class="mini-text">
+                Humidity:
+              </p>
+          </div> 
+        </article>
       </main>
-
-      <footer class="container">
-        <div class="row align-items-center">
-          <div class="col">
-            <img
-              src="http://openweathermap.org/img/wn/10d.png"
-              alt="demo icon"
-            />
-            <span>10d.png</span>
-          </div>
-          <div class="col">
-            <img
-              src="http://openweathermap.org/img/wn/10d@2x.png"
-              alt="demo icon"
-            />
-            <span>10d@2x.png</span>
-          </div>
-          <div class="col">
-            <img
-              src="http://openweathermap.org/img/wn/10d@4x.png"
-              alt="demo icon"
-            />
-            <span>10d@4x.png</span>
-          </div>
-        </div>
-      </footer>
-    </section>
+    </div>
 
     <!-- Moment JS -->
     <script
