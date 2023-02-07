@@ -153,3 +153,59 @@ $(document).ready(function() {
     });
 });
 
+// Code #3
+
+function getCoordinates(city) {
+  return $.ajax({
+    url: `https://api.opencagedata.com/geocode/v1/json?q=${city}&key=<API_KEY>`,
+    method: 'GET',
+    dataType: 'json'
+  });
+}
+
+function getWeather(latitude, longitude) {
+  return $.ajax({
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=<API_KEY>`,
+    method: 'GET',
+    dataType: 'json'
+  });
+}
+
+$(document).ready(function() {
+  $('#search-button').click(function() {
+    let city = $('#city-input').val();
+    getCoordinates(city)
+      .then(function(data) {
+        let latitude = data.results[0].geometry.lat;
+        let longitude = data.results[0].geometry.lng;
+        return getWeather(latitude, longitude);
+      })
+      .then(function(data) {
+        let weather = data.weather[0].main;
+        let icon = data.weather[0].icon;
+        let temperature = data.main.temp;
+        let humidity = data.main.humidity;
+        let windSpeed = data.wind.speed;
+
+        $('#weather-card').html(`
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Weather in ${city}</h5>
+              <p class="card-text">
+                <img src="http://openweathermap.org/img/w/${icon}.png" />
+                <br>
+                Weather: ${weather}
+                <br>
+                Temperature: ${temperature}°C
+                <br>
+                Humidity: ${humidity}%
+                <br>
+                Wind Speed: ${windSpeed} m/s
+              </p>
+            </div>
+          </div>
+        `);
+      });
+  });
+});
+
