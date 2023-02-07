@@ -89,3 +89,67 @@ function init() {
 }
 
 init();
+
+// Code to tey from AI
+
+function getCoordinates(city) {
+  return $.ajax({
+    url: `https://api.opencagedata.com/geocode/v1/json?q=${city}&key=<API_KEY>`,
+    method: 'GET',
+    dataType: 'json'
+  });
+}
+
+function getWeather(latitude, longitude) {
+  return $.ajax({
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=<API_KEY>`,
+    method: 'GET',
+    dataType: 'json'
+  });
+}
+
+$(document).ready(function() {
+  let city = prompt("Enter the city name: ");
+  getCoordinates(city)
+    .done(function(data) {
+      let latitude = data.results[0].geometry.lat;
+      let longitude = data.results[0].geometry.lng;
+      getWeather(latitude, longitude)
+        .done(function(data) {
+          console.log(data);
+        });
+    });
+});
+
+
+// Code to try #2
+
+function getCoordinates(city) {
+  return $.ajax({
+    url: `https://api.opencagedata.com/geocode/v1/json?q=${city}&key=<API_KEY>`,
+    method: 'GET',
+    dataType: 'json'
+  });
+}
+
+function getWeather(latitude, longitude) {
+  return $.ajax({
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=<API_KEY>`,
+    method: 'GET',
+    dataType: 'json'
+  });
+}
+
+$(document).ready(function() {
+  let city = prompt("Enter the city name: ");
+  getCoordinates(city)
+    .then(function(data) {
+      let latitude = data.results[0].geometry.lat;
+      let longitude = data.results[0].geometry.lng;
+      return getWeather(latitude, longitude);
+    })
+    .then(function(data) {
+      console.log(data);
+    });
+});
+
