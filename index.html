@@ -22,7 +22,10 @@
     />
 
     <!-- Font Awesome CSS Icons (For cool glyphicons) -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
 
     <!-- MY CSS -->
     <link rel="stylesheet" href="./assets/CSS/style.css" />
@@ -33,40 +36,38 @@
 
     <div class="page-contents">
       <aside class="side-left">
-        
         <form role="form">
-
           <div class="form-group">
             <label for="search">Search for a City:</label>
-            <input type="text" class="form-control" id="search-term">
+            <input type="text" class="form-control" id="search-term" />
           </div>
 
-            <button type="button" class="btn btn-primary btn-block" id="search-button">
-              <i class="fa fa-search"></i> Search</button>
+          <button
+            type="button"
+            class="btn btn-primary btn-block"
+            id="search-button"
+          >
+            <i class="fa fa-search"></i> Search
+          </button>
         </form>
 
-        <hr>
+        <hr />
 
         <span class="city-list" id="city-list"></span>
-
       </aside>
 
       <main class="weather-view">
         <article class="weather" id="weather-main">
-
-          <h2 id="city-name">Manchester</h2>
+          <h2 id="city-name">City-Name</h2>
           <p>Temperature:</p>
           <p>Wind:</p>
           <p>Humidity:</p>
         </article>
 
-        <h3> 5-Day Forecast</h3>
+        <h3>5-Day Forecast</h3>
 
         <article class="weather many-days" id="weather-days">
-
-
-        
-          <div class="weather mini-day" id="weather-mini">
+          <!-- <div class="weather mini-day" id="weather-mini">
             <h4 class="date" id="day-1">06.02.2023<h4>
               <p class="mini-text">
                 Temperature:
@@ -129,7 +130,7 @@
               <p class="mini-text">
                 Humidity:
               </p>
-          </div> 
+          </div>  -->
         </article>
       </main>
     </div>
@@ -148,7 +149,7 @@
     ></script>
 
     <!-- MY JavaScript -->
-    <script src="./assets/JavaScript/script.js"></script>
+
     <script src="./assets/JavaScript/logic.js"></script>
   </body>
 </html>

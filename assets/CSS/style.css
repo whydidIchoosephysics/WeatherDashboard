@@ -1,7 +1,14 @@
 h1 {
   color: azure;
   text-align: center;
-  background-color: blue;
+  background: rgb(68, 17, 255);
+  background: linear-gradient(
+    270deg,
+    rgba(68, 17, 255, 1) 0%,
+    rgba(55, 75, 226, 1) 50%,
+    rgba(69, 220, 252, 1) 100%
+  );
+  padding: 10px;
 }
 
 .page-contents {
@@ -16,6 +23,7 @@ aside {
   height: 100%;
   width: 33%;
   /* margin: align-self; */
+  padding: 10px;
 }
 
 main {
@@ -25,15 +33,19 @@ main {
   /* border: 2px solid red; */
   height: 100%;
   width: 67%;
+
+  padding: 8px;
 }
 
 article {
   border: 2px solid purple;
   height: 100%;
+  padding: ;
 }
 
 p {
-  border: 1px solid green;
+  border: 1px solid cyan;
+  background-color: cyan;
   font-size: medium;
 }
 
@@ -48,8 +60,9 @@ hr {
 }
 
 .mini-day {
-  border: 1px solid orange;
-  width: 18%;
+  border: 1px solid lightblue;
+  background-color: lightblue;
+  width: 17%;
 }
 
 .many-days {
@@ -62,4 +75,8 @@ hr {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#weather-main {
+  padding: 10px;
 }
