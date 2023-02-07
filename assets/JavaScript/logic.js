@@ -80,36 +80,6 @@ function searchCityWeather(city, latitude, longitude) {
       let wind = promise.list[i].wind.speed;
       let humidity = promise.list[i].main.humidity;
 
-      // let tempText = "Temperature: " + temperature + "°C";
-      // let windText = "Wind: " + wind + "KPH";
-      // let humidityText = "Humidity: " + humidity + "%";
-
-      // console.log(date);
-      // console.log(tempText);
-      // console.log(windText);
-      // console.log(humidityText);
-
-      // let card = $("<div>");
-      // card.addClass("weather mini-day");
-      // card.attr("id", "weather-mini" + [i / 8]);
-
-      // let dateH4 = $("<h4>");
-      // dateH4.addClass("date");
-      // dateH4.attr("id", "weather-" + [i / 8]);
-      // dateH4.text(date);
-
-      // let temp = $("<p>").text(tempText);
-      // temp.addClass("mini-text");
-
-      // let win = $("<p>").text(windText);
-      // win.addClass("mini-text");
-
-      // let hum = $("<p>").text(humidityText);
-      // hum.addClass("mini-text");
-
-      // card.append(dateH4, temp, win, hum);
-      // daysArea.append(card);
-
       renderCards(date, temperature, wind, humidity);
     }
   });
@@ -136,10 +106,10 @@ function createButton(name) {
 function renderCards(date, temperature, wind, humidity) {
   // Create Big Weather
 
-  cityBigName.text(cityName);
-  $("#weather-main p:first-of-type").text("Temperature");
-  $("#weather-main p:nth-of-type(2)").text("Wind");
-  $("#weather-main p:nth-of-type(3)").text("Humidity");
+  // cityBigName.text(cityName);
+  // $("#weather-main p:first-of-type").text("Temperature");
+  // $("#weather-main p:nth-of-type(2)").text("Wind");
+  // $("#weather-main p:nth-of-type(3)").text("Humidity");
 
   // Create small cards
 
@@ -191,6 +161,4 @@ $("#search-button").on("click", function (event) {
     searchedCities.push(cityName);
     createButton(cityName);
   }
-
-  // Calling renderButtons which handles the processing of our movie array
 });
