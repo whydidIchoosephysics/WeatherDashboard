@@ -209,3 +209,79 @@ $(document).ready(function() {
   });
 });
 
+// Code #4
+
+function getCoordinates(city) {
+  return $.ajax({
+    url: `https://api.opencagedata.com/geocode/v1/json?q=${city}&key=<API_KEY>`,
+    method: 'GET',
+    dataType: 'json'
+  });
+}
+
+function getWeather(latitude, longitude) {
+  return $.ajax({
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=<API_KEY>`,
+    method: 'GET',
+    dataType: 'json'
+  });
+}
+
+$(document).ready(function() {
+  let cities = [];
+
+  $('#search-button').click(function() {
+    let city = $('#city-input').val();
+    getCoordinates(city)
+      .then(function(data) {
+        let latitude = data.results[0].geometry.lat;
+        let longitude = data.results[0].geometry.lng;
+        return getWeather(latitude, longitude);
+      })
+      .then(function(data) {
+        cities.push({
+          name: city,
+          weather: data
+        });
+
+        let cityList = '';
+        for (let i = 0; i < cities.length; i++) {
+          cityList += `<button class="city-button" id="city-${i}">${cities[i].name}</button>`;
+        }
+
+        $('#city-list').html(cityList);
+
+        $('.city-button').click(function() {
+          let id = $(this).attr('id').split('-')[1];
+          let weather = cities[id].weather;
+
+          let temperature = weather.main.temp;
+          let humidity = weather.main.humidity;
+          let windSpeed = weather.wind.speed;
+          let weatherDescription = weather.weather[0].main;
+          let icon = weather.weather[0].icon;
+
+          $('#weather-card').html(`
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Weather in ${city}</h5>
+                <p class="card-text">
+                  <img src="http://openweathermap.org/img/w/${icon}.png" />
+                  <br>
+                  Weather: ${weatherDescription}
+                  <br>
+                  Temperature: ${temperature}°C
+                  <br>
+                  Humidity: ${humidity}%
+                  <br>
+                  Wind Speed: ${windSpeed} m/s
+                </p>
+              </div>
+            </div>
+          `);
+        });
+      });
+  });
+});
+
+
