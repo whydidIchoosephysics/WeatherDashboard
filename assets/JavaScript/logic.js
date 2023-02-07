@@ -57,6 +57,21 @@ function searchCityWeather(latitude, longitude) {
 
     daysArea.empty();
 
+    cityName = "String";
+
+    let temperature = promise.list[0].main.temp;
+    let wind = promise.list[0].wind.speed;
+    let humidity = promise.list[0].main.humidity;
+
+    let tempText = "Temperature: " + temperature + "°C";
+    let windText = "Wind: " + wind + "KPH";
+    let humidityText = "Humidity: " + humidity + "%";
+
+    cityBigName.text(cityName);
+    $("#weather-main p:first-of-type").text(tempText);
+    $("#weather-main p:nth-of-type(2)").text(windText);
+    $("#weather-main p:nth-of-type(3)").text(humidityText);
+
     for (i = 0; i < promise.list.length; i = i + 8) {
       let date = promise.list[i].dt_txt.split(" ")[0];
       let temperature = promise.list[i].main.temp;
@@ -112,6 +127,11 @@ function renderCards() {
 
   // Create Big Weather
 
+  cityBigName.text(cityName);
+  $("#weather-main p:first-of-type").text("Temperature");
+  $("#weather-main p:nth-of-type(2)").text("Wind");
+  $("#weather-main p:nth-of-type(3)").text("Humidity");
+
   // Create small cards
 
   let card = $("<div>");
@@ -148,4 +168,16 @@ $(document).ready(function () {
 
     console.log(searchedCities);
   });
+});
+
+$("#add-movie").on("click", function (event) {
+  event.preventDefault();
+  // This line of code will grab the input from the textbox
+  var movie = $("#movie-input").val().trim();
+
+  // The movie from the textbox is then added to our array
+  movies.push(movie);
+
+  // Calling renderButtons which handles the processing of our movie array
+  renderButtons();
 });

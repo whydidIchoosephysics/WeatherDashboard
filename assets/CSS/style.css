@@ -19,7 +19,7 @@ h1 {
 }
 
 aside {
-  border: 2px solid black;
+  border-right: 2px solid black;
   height: 100%;
   width: 33%;
   /* margin: align-self; */
@@ -40,7 +40,6 @@ main {
 article {
   border: 2px solid purple;
   height: 100%;
-  padding: ;
 }
 
 p {
